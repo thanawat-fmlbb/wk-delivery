@@ -29,7 +29,9 @@ DB_NAME = os.environ.get('DB_NAME', 'postgres')
 
 db_url = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOSTNAME}:{DB_PORT}/{DB_NAME}"
 engine = create_engine(db_url)
-SQLModel.metadata.create_all(engine)
+
+def create_db_and_tables():
+    SQLModel.metadata.create_all(engine)
 
 
 def create_delivery(main_id: int, buyer_id: int, buyer_address: str):
