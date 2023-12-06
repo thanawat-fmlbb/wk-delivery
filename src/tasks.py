@@ -13,10 +13,16 @@ def make_delivery(**kwargs):
     main_id = kwargs.get('main_id')
     user_id = kwargs.get('user_id')
     user_address = kwargs.get('user_address')
+    
     success = True
     try:
+        # backdoor for testing timeout
+        if user_address == "timeout":
+            from time import sleep
+            sleep(40)
+
         create_delivery(main_id=main_id, buyer_id=user_id, buyer_address=user_address)
-    except SoftTimeLimitExceeded:
+    except SoftTimeLimitExceeded as e:
         print(e)
         success = False
         kwargs["error"] = "timeout"
