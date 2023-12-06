@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "wk-delivery"
+name = "delivery"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Delivery service for FMLBB"
+authors = ["Nawat Ngerncham <67263644+nngerncham@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
